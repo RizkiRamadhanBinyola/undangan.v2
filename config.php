@@ -9,4 +9,7 @@
     if (!$conn) {
         echo "Connection Failed.";
     }
+
+    // Set zona waktu ke Asia/Jakarta dengan offset +07:00
+    mysqli_query($conn, "SET time_zone = '+07:00'");
 ?>

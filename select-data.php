@@ -28,14 +28,14 @@
 
     <?php }?>
 
-      <?php
-        $query_jumlah = "SELECT count(*) AS jumlah FROM msg";
-        $dewan1 = $conn->prepare($query_jumlah);
-        $dewan1->execute();
-        $res1 = $dewan1->get_result();
-        $row = $res1->fetch_assoc();
-        $total_records = $row['jumlah'];
-      ?>
+    <?php
+      $query_jumlah = "SELECT count(*) AS jumlah FROM msg";
+      $dewan1 = $conn->prepare($query_jumlah);
+      $dewan1->execute();
+      $res1 = $dewan1->get_result();
+      $row = $res1->fetch_assoc();
+      $total_records = $row['jumlah'];
+    ?>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <?php
@@ -57,7 +57,7 @@
                } else {
                    $link_prev = ($page > 1) ? $page - 1 : 1;
                    echo '<li class="page-item halaman" id="1"><a class="page-link" href="#content">First</a></li>';
-                   echo '<li class="page-item halaman" id="' . $link_prev . '"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>';
+                   echo '<li class="page-item halaman" id="' . $link_prev . '"><a class="page-link" href="#content"><span aria-hidden="true">&laquo;</span></a></li>';
                }
            
                for ($i = $start_number; $i <= $end_number; $i++) {

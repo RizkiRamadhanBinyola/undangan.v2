@@ -66,7 +66,9 @@ timer();
 const buka = async () => {
     document.getElementById('tombol-musik').style.display = 'block';
     audio.play();
-    AOS.init();
+    AOS.init({
+        once: true
+    });
     await login();
     timer();
 };

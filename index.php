@@ -205,7 +205,7 @@
         </svg>
 
             <!-- ============= Ucapan Dan Doa =============  -->
-            <div class="container mt-5" style="margin-top: 100px;" id="ucapan">
+            <div class="container mt-5" style="margin-top: 100px;" id="ucapan" data-aos="fade-up" data-aos-duration="1500">
                 <div class="wrapper card" style="width: 100%;">
                   <div class="card-body">
                       
@@ -368,6 +368,32 @@
                     text: 'Mohon lengkapi semua kolom 🙏',
                 })
             }
+
+            $(document).ready(function () {
+            function loadPage(page) {
+                $.ajax({
+                url: 'select-data.php',
+                type: 'POST',
+                data: { page: page },
+                beforeSend: function () {
+                    // Menambahkan spinner Bootstrap saat loading
+                    $('#content').html('<div class="d-flex justify-content-center mt-4"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>');
+                },
+                success: function (data) {
+                    $('#content').html(data);
+                },
+                });
+            }
+
+            $(document).on('click', '.halaman', function () {
+                var page = $(this).attr('id');
+                loadPage(page);
+            });
+
+            // Inisialisasi load halaman pertama saat halaman dimuat
+            loadPage(1);
+            });
+
 
             $(document).ready(function(){
                 function loadData(){
